@@ -16,7 +16,7 @@ if(isset($_POST) && !empty($_POST)){
 
   if(!is_null($row)){
     if(password_verify($clave, $row["clave"])){
-      $_SESSION = ["id" => $row["codigo"], "alias"=> $row["alias"]];
+      $_SESSION = $row;
       echo "Usuario encontrado";
 
     } else {
