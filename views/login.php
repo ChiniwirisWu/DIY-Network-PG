@@ -14,10 +14,10 @@
 <body>
   <div class="outer-container">
     <div class="left-pane">
-      <form action="../control/control_login.php" method="post">
+      <form action="../controllers/login.php" method="post">
         <h2>Inicio de sesión</h2>
-        <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" id="usuario" pattern="[a-zA-Z0-9]{4,10}" required>
+        <label for="alias">Usuario:</label>
+        <input type="text" name="alias" id="alias" pattern="[a-zA-Z0-9]{4,10}" required>
         <label for="clave">Contraseña:</label>
         <input type="password" name="clave" id="clave" pattern="[a-zA-Z0-9@#$%&-_+*/]{4,20}" required>
         <button type="submit">Iniciar</button>
