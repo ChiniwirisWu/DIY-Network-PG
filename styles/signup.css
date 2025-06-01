@@ -1,172 +1,158 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root {
-  --primary-color: #B68036;
-  --secondary-color: #C47457;
-  --button-color: #CDAD85;
-  --button-hover: #F3CEB1;
-  --text-color:#EFDFBB;/* #633D3D */
-  --input-border: #CB9F7C;
-  --container-bg: #E5E9E1; 
-}
+    :root {
+      --button-color: #CDAD85;
+      --button-hover: #F3CEB1;
+      --input-border: #CB9F7C;
+      --text-color:#EFDFBB;/* #633D3D */
+      --container-bg: #E5E9E1; 
+    }
 
-/* Fondo general de la página */
-body {
-  background: linear-gradient(
-      135deg,
-      rgba(202, 202, 175, 0.7),
-      rgba(96, 95, 75, 0.7),
-      rgba(156, 158, 128, 0.7)
-    );
-  background-size: cover;
-  font-family: "Zain", sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      background: linear-gradient(
+          135deg,
+          rgba(202, 202, 175, 0.7),
+          rgba(96, 95, 75, 0.7),
+          rgba(156, 158, 128, 0.7)
+        );
+      background-size: cover;
+      font-family: "Zain", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Contenedor principal con fondo sólido y borde redondeado */
 .outer-container {
-background: var(--container-bg);
-border-radius: 20px;
-width: 90%;
-max-width: 1200px;
-height: auto; /* Permite que se ajuste sin forzar */
-min-height: 500px; /* Mantiene proporciones */
-overflow: hidden;
-box-shadow: 0 8px 32px #1e2e25;
-display: flex;
-flex-wrap: wrap; /* Evita que se distorsione */
-}
-
-/* Paneles interno: izquierdo y derecho */
-.left-pane, .right-pane {
-flex-grow: 1;
-flex-basis: 50%;
-min-width: 350px; /* Evita que se hagan demasiado pequeños */
-padding: 40px;
-}
-
-/* Panel izquierdo: formulario e enlace de crear usuario */
-.left-pane {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 500px;
-  background-color: #605F4B;
-}
-    /* Panel derecho: imagen de fondo */
-.right-pane {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  
-  /* Gradiente semitransparente sobre la imagen */
-  background: linear-gradient(
-      135deg,
-      rgba(202, 202, 175, 0.7),
-      rgba(96, 95, 75, 0.7),
-      rgba(156, 158, 128, 0.7)
-    ),
-    url('../images/autumn-background.jpg') no-repeat center center;
-  
-  background-size: 100% 100%; /* Estira la imagen para ocupar todo el espacio */
-  background-repeat: no-repeat;
-}
-
-form {
+  background: var(--container-bg);
   border-radius: 20px;
-  padding: 30px 20px;
-  color: var(--text-color);
-  text-align: center;
-  margin-bottom: 20px;
-  max-width: 450px;
-  /*box-shadow: 0 8px 32px #C47457;*/
-  background-color:rgba(114, 47, 55, 0.3);
-
+  width: 90%;
+  max-width: 1200px;
+  height: auto; 
+  min-height: 500px; 
+  overflow: hidden;
+  box-shadow: 0 8px 32px #1e2e25;
+  display: flex;
+  flex-wrap: wrap; 
 }
 
-form h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 800;
-  font-style: normal;
+.left-pane, .right-pane {
+  flex-grow: 1;
+  flex-basis: 50%;
+  min-width: 350px; 
+  padding: 40px;
 }
 
-form label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-size: 20px;
-  font-weight: 500;
-}
+    .left-pane {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      background-color: #605F4B;
+    }
 
-form input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid var(--input-border);
-  padding: 10px 5px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  color: var(--text-color);
-}
+    .right-pane {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(
+          135deg,
+          rgba(202, 202, 175, 0.7),
+          rgba(96, 95, 75, 0.7),
+          rgba(156, 158, 128, 0.7)
+        ),
+        url('../images/autumn-background.jpg') no-repeat center center;
+      
+      background-size: 100% 100%; 
+      background-repeat: no-repeat;
+    }
 
-form input:focus {
-  outline: none;
-}
+    form {
+      border-radius: 20px;
+      padding: 30px 20px;
+      color: var(--text-color);
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 450px;
+      /*box-shadow: 0 8px 32px #C47457;*/
+      background-color:rgba(114, 47, 55, 0.3);
+    }
+    
+    form h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+      font-style: normal;
+    }
+    
+    form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    
+    form input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--input-border);
+      padding: 10px 5px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+    
+    form input:focus {
+      outline: none;
+    }
+    
+    form button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 30px;
+      background: var(--button-color);
+      color: var(--text-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.4s;
+    }
+    
+    form button:hover {
+      background: var(--button-hover);
+      color: #633D3D;
+    }
 
-form button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 30px;
-  background: var(--button-color);
-  color: var(--text-color);
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.4s;
-}
+    .create-user {
+      display: block;
+      text-align: center;
+      color: #E7BE89;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .create-user:hover {
+      text-decoration: underline;
+      color: #F3CEB1;   
+    }
+    
+    h4{
+      color: #E7BE89;
+    }
 
-form button:hover {
-  background: var(--button-hover);
-  color: #633D3D;
-}
-
-/* Enlace para crear usuario */
-.create-user {
-  display: block;
-  text-align: center;
-  color: #E7BE89;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.create-user:hover {
-  text-decoration: underline;
-  color: #F3CEB1;
-  
-}
-
-h4{
-  color: #E7BE89;
-}
-
-/* Adaptabilidad para pantallas pequeñas */
-@media (max-width: 768px) {
-  .outer-container {
-    flex-direction: column;
-  }
-
-}
+    @media (max-width: 768px) {
+      .outer-container {
+        flex-direction: column;
+      }
+    }

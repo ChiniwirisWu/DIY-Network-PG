@@ -1,5 +1,4 @@
-    /* Reset básico */
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -8,14 +7,13 @@
     :root {
       --primary-color: #B68036;
       --secondary-color: #C47457;
-      --button-color: #CDAD85;
+      --button-color: #A64C34;
       --button-hover: #F3CEB1;
-      --text-color: #633D3D;
+      --text-color: #EFDFBB;
       --input-border: #CB9F7C;
       --container-bg: #E5E9E1; 
     }
 
-    /* Fondo general de la página */
     body {
       background: linear-gradient(
           135deg,
@@ -30,20 +28,20 @@
       justify-content: center;
       align-items: center;
     }
-    
-    /* Contenedor principal con fondo sólido y borde redondeado */
-    .outer-container {
-      background: var(--container-bg);
-      border-radius: 20px;
-      width: 90%;
-      max-width: 1200px;
-      max-height: 600px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px #633D3D;
-      display: flex;
-    }
-    
-    /* Paneles interno: izquierdo y derecho */
+
+.outer-container {
+  background: var(--container-bg);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  height: auto; 
+  min-height: 500px; 
+  overflow: hidden;
+  box-shadow: 0 8px 32px #722F37;
+  display: flex;
+  flex-wrap: wrap; 
+}
+
     .left-pane,
     .right-pane {
       flex: 1;
@@ -51,8 +49,7 @@
       min-width: 350px;
       padding: 40px;
     }
-    
-    /* Panel izquierdo: formulario e enlace de crear usuario */
+
     .left-pane {
       display: flex;
       flex-direction: column;
@@ -61,15 +58,14 @@
       max-width: 500px;
       background-color:rgba(102, 28, 31, 0.9);
     }
-        /* Panel derecho: imagen de fondo */
+
     .right-pane {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      
-      /* Gradiente semitransparente sobre la imagen */
+
       background: linear-gradient(
           135deg,
           rgba(196, 116, 87, 0.5),
@@ -78,7 +74,7 @@
         ),
         url('../images/autumn-background.jpg') no-repeat center center;
       
-      background-size: 100% 100%; /* Estira la imagen para ocupar todo el espacio */
+      background-size: 100% 100%; 
       background-repeat: no-repeat;
     }
 
@@ -130,7 +126,7 @@
       margin-top: 10px;
       border: none;
       border-radius: 30px;
-      background: var(--button-color);
+      background: var(--secondary-color);
       color: var(--text-color);
       font-size: 1.1rem;
       font-weight: 600;
@@ -142,8 +138,7 @@
       background: var(--button-hover);
       color: #722F37;
     }
-    
-    /* Enlace para crear usuario */
+
     .create-user {
       display: block;
       text-align: center;
@@ -160,11 +155,9 @@
     h4{
       color: #E7BE89;
     }
-    
-    /* Adaptabilidad para pantallas pequeñas */
+
     @media (max-width: 768px) {
       .outer-container {
         flex-direction: column;
       }
-      
     }
