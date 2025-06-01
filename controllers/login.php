@@ -8,12 +8,19 @@ if(isset($_POST) && !empty($_POST)){
   $alias = depurar($_POST["alias"]);
   $clave = depurar($_POST["clave"]);
 
-  $hash = password_hash($clave, PASSWORD_BCRYPT);
-  $sql = "SELECT FROM usuario WHERE alias='$alias' AND clave='$hash'";
+  $sql = "SELECT FROM usuario WHERE alias='$alias'";
   $query = mysqli_query($connection, $sql);
 
-  if($query)
-    header("location: ../views/login.php");
+  $row = mysqli_fetch_array($query);
+
+  if(is_null(!$row)){
+    if(password_verify($clave, $row["clave"])){
+      echo "Usuario encontrado " . $row["alias"];
+    } else {
+      echo "Usuario y/o clave erroreo";
+    }
+  }
+
 }
 
 ?>
