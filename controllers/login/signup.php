@@ -1,8 +1,10 @@
 <?php
 
 session_start();
-include "../include/connection.php";
-include "../include/function.php";
+
+include "../../include/connection.php";
+include "../../include/function.php";
+
 if(isset($_POST) && !empty($_POST)){
   $connection = conexion();
   $alias = depurar($_POST["alias"]);
@@ -13,7 +15,7 @@ if(isset($_POST) && !empty($_POST)){
   $query = mysqli_query($connection, $sql);
 
   if($query)
-    header("location: ../views/login.php");
+    header("location: ../../views/login.php");
 }
 
 ?>
