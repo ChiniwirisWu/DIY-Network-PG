@@ -5,4 +5,5 @@ include "../../include/session.php";
 
 
 //include view
+include "../../views/user-profile.php";
 ?>

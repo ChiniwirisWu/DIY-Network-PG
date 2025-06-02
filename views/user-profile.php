@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="website icon" type="png" href="../images/user.png">
-    <link rel="stylesheet" href="../styles/user-profile.css">
+    <link rel="stylesheet" href="../../styles/user-profile.css">
 </head>
 <body>
     <div id="container">
@@ -34,11 +34,11 @@
                 <div id="up-title">Datos de usuario</div>
                 <div id="data-container">
                     <div id="username-info">
-                        <p>Nombre de usuario: <span id="username">holas</span></p>
+              <p>Nombre de usuario: <span id="username"><?php echo $_SESSION["alias"] ?></span></p>
                         <button class="bttn-modificar" onclick="toggleInput('new-user')">Modificar</button> 
                         <div id="new-user">
-                            <form action="procesar.php" method="POST">
-                                <input type="text" name="nuevo_nombre" placeholder="Nuevo usuario">
+                            <form action="../profile/update-username.php" method="POST">
+                                <input type="text" name="alias" placeholder="Nuevo usuario">
                                 <button type="submit" class="save-bttn">Guardar</button>
                                 <button type="button" onclick="toggleInput('new-user')" class="exit-bttn">Cerrar</button>
                             </form>
@@ -49,8 +49,8 @@
                         <p>Contraseña: <span id="password">********</span></p>
                         <button class="bttn-modificar" onclick="toggleInput('new-password')">Modificar</button> 
                         <div id="new-password">
-                            <form action="procesar.php" method="POST">
-                                <input type="password" name="nuevo_password" placeholder="Nueva contraseña" required>
+                            <form action="../profile/update-password.php" method="POST">
+                                <input type="password" name="password" placeholder="Nueva contraseña" required>
                                 <button type="submit" class="save-bttn">Guardar</button>
                                 <button type="button" onclick="toggleInput('new-password')" class="exit-bttn">Cerrar</button>
                             </form>
@@ -62,7 +62,9 @@
                     <form id="deleteForm" action="eliminar.php" method="POST">
                         <button class="low-bttn" type="button" onclick="confirmarEliminacion()">Borrar cuenta</button>
                     </form>
-                    <button class="low-bttn exit-bttn"  type="button">Salir</button>
+                    <form id="close-bttn" action="../profile/close.php" method="POST">
+                      <button class="low-bttn exit-bttn" type="submit">Salir</button>
+                    </form>
                 </div>
 
                 <script>

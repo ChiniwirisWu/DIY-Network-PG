@@ -13,9 +13,15 @@ if(!empty($_POST["alias"])){
 
   if($query){
     echo "El alias fue actualizado con exito";
+    $sql = "SELECT * FROM usuario WHERE codigo='$codigo'";
+    $query = mysqli_query($connection, $sql);
+    $_SESSION = mysqli_fetch_array($query);
   } else {
     echo "Ocurrio un problema actualizando el alias";
   }
+
 }
+
+header("Location: ../views/profile.php");
 
 ?>

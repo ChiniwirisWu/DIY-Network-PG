@@ -8,13 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="website icon" type="png" href="../images/login-lock-w.png">
-<link rel="stylesheet" href="../styles/login.css" />
+<link rel="stylesheet" href="../../styles/login.css" />
 
 </head>
 <body>
   <div class="outer-container">
     <div class="left-pane">
-      <form action="../controllers/login.php" method="post">
+      <form action="../login/login.php" method="post">
         <h2>Inicio de sesión</h2>
         <label for="alias">Usuario:</label>
         <input type="text" name="alias" id="alias" pattern="[a-zA-Z0-9]{4,10}" required>

@@ -15,7 +15,7 @@ if(isset($_POST) && !empty($_POST)){
   $query = mysqli_query($connection, $sql);
 
   if($query)
-    header("location: ../../views/login.php");
+    header("location: ../views/login.php");
 }
 
 ?>
