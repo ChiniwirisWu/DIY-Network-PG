@@ -14,7 +14,8 @@
 <body>
   <div class="outer-container">
     <div class="left-pane">
-      <form action="../login/signup.php" method="post">
+      <form action="../views/signup.php" method="post">
+        <p><?php echo $mensaje ?></p>
         <h2>Crear cuenta</h2>
         <label for="alias">Usuario:</label>
         <input type="text" name="alias" id="alias" pattern="[a-zA-Z0-9]{4,10}" required>
@@ -22,7 +23,7 @@
         <input type="password" name="clave" id="clave" pattern="[a-zA-Z0-9@#$%&-_+*/]{4,20}" required>
         <button type="submit">Crear</button>
       </form>
-      <h4>¿Ya tienes cuenta?</h4><a class="create-user" href="login.php">Haz click aquí para ingresar</a>
+      <h4>¿Ya tienes cuenta?</h4><a class="create-user" href="../views/login.php">Haz click aquí para ingresar</a>
     </div>
     <div class="right-pane">
 
