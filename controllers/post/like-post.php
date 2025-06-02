@@ -1,9 +1,9 @@
 <?php
-include "../include/session.php";
-include "../include/function.php";
+include "../../include/session.php";
+include "../../include/function.php";
 
 if(!empty($_POST)){
-  include "../include/connection.php";
+  include "../../include/connection.php";
   $connection = conexion();
   $post = $_POST["post"];
   $user_id = $_SESSION["codigo"];

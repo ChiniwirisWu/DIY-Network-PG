@@ -1,9 +1,9 @@
 <?php
 
-include "../include/session.php";
+include "../../include/session.php";
+include "../../include/connection.php";
+include "../../include/function.php";
 
-include "../include/connection.php";
-include "../include/function.php";
 if(isset($_POST) && !empty($_POST)){
   $connection = conexion();
   $alias = depurar($_POST["alias"]);
