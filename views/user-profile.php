@@ -19,14 +19,14 @@
                 <div id="up-title">Datos de usuario</div>
                 <div id="data-container">
                     <div id="username-info">
-              <p>Nombre de usuario: <span id="username"><?php echo $_SESSION["alias"] ?></span></p>
+                        <p>Nombre de usuario: <span id="username"><?php echo $_SESSION["alias"] ?></span></p>
                         <button class="bttn-modificar" onclick="toggleInput('new-user')">Modificar</button> 
                         <div id="new-user">
-                            <form action="../profile/update-username.php" method="POST">
-                                <input type="text" name="alias" placeholder="Nuevo usuario">
-                                <button type="submit" class="save-bttn">Guardar</button>
-                                <button type="button" onclick="toggleInput('new-user')" class="exit-bttn">Cerrar</button>
-                            </form>
+                          <form action="../profile/update-username.php" method="POST">
+                              <input type="text" name="alias" placeholder="Nuevo usuario">
+                              <button type="submit" class="save-bttn">Guardar</button>
+                              <button type="button" onclick="toggleInput('new-user')" class="exit-bttn">Cerrar</button>
+                          </form>
                         </div>
                     </div>
 
@@ -44,7 +44,7 @@
                 </div>
 
                 <div id="down-bttns">
-                    <form id="deleteForm" action="eliminar.php" method="POST">
+                    <form id="deleteForm" action="../profile/remove-profile.php" method="POST">
                         <button class="low-bttn" type="button" onclick="confirmarEliminacion()">Borrar cuenta</button>
                     </form>
                     <form id="close-bttn" action="../profile/close.php" method="POST">

@@ -5,14 +5,17 @@ include "../../include/connection.php";
 
 $connection = conexion();
 $codigo = $_SESSION["codigo"];
+$mensaje = "";
 
-$sql = "DELETE FROM usuario WHERE codigo='$codigo'";
-$query = mysqli_query($connection, $sql);
+try{
+  $sql = "DELETE FROM usuario WHERE codigo='$codigo'";
+  $query = mysqli_query($connection, $sql);
+  $mensaje = "El usuario fue eliminado exitosamente";
 
-if($query){
-  echo "El usuario fue eliminado exitosamente";
-} else {
-  echo "Ocurrio un problema eliminando el usuario";
+} catch(Exception $e){
+  $mensaje = "Ocurrio un problema eliminando el usuario";
 }
+
+include "../../views/login.php";
 
 ?>
