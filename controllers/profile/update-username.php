@@ -22,6 +22,6 @@ if(!empty($_POST["alias"])){
 
 }
 
-header("Location: ../views/profile.php");
+header("Location: ../../views/profile.php");
 
 ?>

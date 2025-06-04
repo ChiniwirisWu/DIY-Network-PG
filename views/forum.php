@@ -1,3 +1,21 @@
+<?php
+
+include "../include/session.php";
+include "../include/connection.php";
+
+$sql = "SELECT * FROM publicacion ORDER BY fecha_publicacion DESC";
+$connection = conexion();
+$query = mysqli_query($connection, $sql);
+$mensaje = "";
+
+$posts = mysqli_fetch_array($query);
+// reviso si no hay publicaciones para mostrar un mensaje de que no existen publicaciones.
+if(empty($post)){
+  $mensaje = "No hay publicaciones todavia"; 
+} 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +26,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="website icon" type="png" href="../images/user.png">
-    <link rel="stylesheet" href="../../styles/forum.css">
-    <link rel="stylesheet" href="../../styles/lside-bar.css">
+    <link rel="stylesheet" href="../styles/forum.css">
+    <link rel="stylesheet" href="../styles/lside-bar.css">
 </head>
 <body>
     <div id="container">
@@ -30,15 +48,15 @@
                       <h3 class="idea-title">Jardín Vertical</h3>
                       <p>93 personas votaron</p>
                       <div class="idea-votes">
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star half.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
                       </div>
 
                       <div class="idea-slider">
-                        <img class="slider-image" src="../../images/click.png"/>
+                        <img class="slider-image" src="../images/click.png"/>
                         <p>Ver publicación</p>
                       </div>
                   </div>
@@ -53,15 +71,15 @@
                       <h3 class="idea-title">Jardín Vertical</h3>
                       <p>93 personas votaron</p>
                       <div class="idea-votes">
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star half.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
                       </div>
 
                       <div class="idea-slider">
-                        <img class="slider-image" src="../../images/click.png"/>
+                        <img class="slider-image" src="../images/click.png"/>
                         <p>Ver publicación</p>
                       </div>
                   </div>
@@ -75,15 +93,15 @@
                       <h3 class="idea-title">Jardín Vertical</h3>
                       <p>93 personas votaron</p>
                       <div class="idea-votes">
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star full.png" />
-                        <img class="vote-star" src="../../images/star half.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
-                        <img class="vote-star" src="../../images/star empty.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
                       </div>
 
                       <div class="idea-slider">
-                        <img class="slider-image" src="../../images/click.png"/>
+                        <img class="slider-image" src="../images/click.png"/>
                         <p>Ver publicación</p>
                       </div>
                   </div>

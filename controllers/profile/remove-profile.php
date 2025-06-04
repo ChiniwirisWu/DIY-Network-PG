@@ -16,6 +16,6 @@ try{
   $mensaje = "Ocurrio un problema eliminando el usuario";
 }
 
-include "../../views/login.php";
+header("Location: ../../views/login.php");
 
 ?>

@@ -1,3 +1,11 @@
+<?php
+// buscar los datos del perfil de la session por el id
+// mostrar todos los datos del perfil que estan guardados en $_SESSION
+include "../include/session.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="website icon" type="png" href="../images/user.png">
-    <link rel="stylesheet" href="../../styles/user-profile.css">
-    <link rel="stylesheet" href="../../styles/lside-bar.css">
+    <link rel="stylesheet" href="../styles/user-profile.css">
+    <link rel="stylesheet" href="../styles/lside-bar.css">
 </head>
 <body>
     <div id="container">
@@ -23,7 +31,7 @@
                         <p>Nombre de usuario: <span id="username"><?php echo $_SESSION["alias"] ?></span></p>
                         <button class="bttn-modificar" onclick="toggleInput('new-user')">Modificar</button> 
                         <div id="new-user">
-                          <form action="../profile/update-username.php" method="POST">
+                          <form action="../controllers/profile/update-username.php" method="POST">
                               <input type="text" name="alias" placeholder="Nuevo usuario">
                               <button type="submit" class="save-bttn">Guardar</button>
                               <button type="button" onclick="toggleInput('new-user')" class="exit-bttn">Cerrar</button>
@@ -35,7 +43,7 @@
                         <p>Contraseña: <span id="password">********</span></p>
                         <button class="bttn-modificar" onclick="toggleInput('new-password')">Modificar</button> 
                         <div id="new-password">
-                            <form action="../profile/update-password.php" method="POST">
+                            <form action="../controllers/profile/update-password.php" method="POST">
                                 <input type="password" name="password" placeholder="Nueva contraseña" required>
                                 <button type="submit" class="save-bttn">Guardar</button>
                                 <button type="button" onclick="toggleInput('new-password')" class="exit-bttn">Cerrar</button>
@@ -45,10 +53,10 @@
                 </div>
 
                 <div id="down-bttns">
-                    <form id="deleteForm" action="../profile/remove-profile.php" method="POST">
+                    <form id="deleteForm" action="../controllers/profile/remove-profile.php" method="POST">
                         <button class="low-bttn" type="button" onclick="confirmarEliminacion()">Borrar cuenta</button>
                     </form>
-                    <form id="close-bttn" action="../profile/close.php" method="POST">
+                    <form id="close-bttn" action="../controllers/profile/close.php" method="POST">
                       <button class="low-bttn exit-bttn" type="submit">Salir</button>
                     </form>
                 </div>
