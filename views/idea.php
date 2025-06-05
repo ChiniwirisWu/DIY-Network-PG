@@ -31,7 +31,7 @@
                 <input type="submit" value="Agregar">
             </div>
             <div>
-                <button type="submit">Publicar</button>
+                <button type="submit" id="post-bttn">Publicar</button>
             </div>
 
         </div>

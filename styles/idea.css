@@ -83,3 +83,8 @@ button{
 }
 
 
+#post-bttn{
+    border-radius: 10px;
+    border-color: transparent;
+    font-size: 30px;
+}
