@@ -54,58 +54,170 @@ if(empty($post)){
                         <img class="vote-star" src="../images/star empty.png" />
                         <img class="vote-star" src="../images/star empty.png" />
                       </div>
+                  </div>
+                </a>
 
-                      <div class="idea-slider">
-                        <img class="slider-image" src="../images/click.png"/>
-                        <p>Ver publicación</p>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                      </div>
+                  </div>
+                </a>
+                <a class="idea-container">
+                  <div class="idea-info">
+                      <div class="idea-image">
+                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      </div>
+                      <h3 class="idea-title">Jardín Vertical</h3>
+                      <p>93 personas votaron</p>
+                      <div class="idea-votes">
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star full.png" />
+                        <img class="vote-star" src="../images/star half.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
+                        <img class="vote-star" src="../images/star empty.png" />
                       </div>
                   </div>
                 </a>
                     
-
-                <a class="idea-container">
-                  <div class="idea-info">
-                      <div class="idea-image">
-                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
-                      </div>
-                      <h3 class="idea-title">Jardín Vertical</h3>
-                      <p>93 personas votaron</p>
-                      <div class="idea-votes">
-                        <img class="vote-star" src="../images/star full.png" />
-                        <img class="vote-star" src="../images/star full.png" />
-                        <img class="vote-star" src="../images/star half.png" />
-                        <img class="vote-star" src="../images/star empty.png" />
-                        <img class="vote-star" src="../images/star empty.png" />
-                      </div>
-
-                      <div class="idea-slider">
-                        <img class="slider-image" src="../images/click.png"/>
-                        <p>Ver publicación</p>
-                      </div>
-                  </div>
-                </a>
-
-                <a class="idea-container">
-                  <div class="idea-info">
-                      <div class="idea-image">
-                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
-                      </div>
-                      <h3 class="idea-title">Jardín Vertical</h3>
-                      <p>93 personas votaron</p>
-                      <div class="idea-votes">
-                        <img class="vote-star" src="../images/star full.png" />
-                        <img class="vote-star" src="../images/star full.png" />
-                        <img class="vote-star" src="../images/star half.png" />
-                        <img class="vote-star" src="../images/star empty.png" />
-                        <img class="vote-star" src="../images/star empty.png" />
-                      </div>
-
-                      <div class="idea-slider">
-                        <img class="slider-image" src="../images/click.png"/>
-                        <p>Ver publicación</p>
-                      </div>
-                  </div>
-                </a>
               <!--
                     <div class="idea-description">
                       <p><b>Materiales: </b>Bombillos led, papel de cocina, Tierra.</p>
