@@ -1,3 +1,9 @@
+<?php
+// buscar los datos del perfil de la session por el id
+// mostrar todos los datos del perfil que estan guardados en $_SESSION
+include "../../include/session.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="website icon" type="png" href="../images/user.png">
-    <link rel="stylesheet" href="../../styles/idea.css">
-    <link rel="stylesheet" href="../../styles/lside-bar.css">
+    <link rel="stylesheet" href="../styles/idea.css">
+    <link rel="stylesheet" href="../styles/lside-bar.css">
 </head>
 <body>
     <div id="container">

@@ -22,5 +22,5 @@ if(!empty($_POST["password"])){
   }
 } 
 
-header("Location: ../views/profile.php");
+header("Location: ../../views/profile.php");
 ?>
