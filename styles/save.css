@@ -19,6 +19,37 @@ form input:focus {
     outline: none;
 }
 
+select{
+  background-color: #661C1F;
+  color: #d5ccab;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+option{
+  cursor: pointer;
+
+}
+
+.bttn-modificar{
+    color: #EFDFBB;
+    background-color: #661C1F;
+    font-size: 18px;
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+.bttn-modificar:hover{
+    color: #661C1F;
+    background-color: #EFDFBB;
+
+}
+
 
 p{
     /*background-color: #A3A289;*/
@@ -73,6 +104,29 @@ button{
     padding: 10px;
     border-radius: 8px;
 }
+
+#filter-info{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    background-color: #D5CCAB;
+    box-shadow: 5px 5px 15px rgba(156, 158, 128, 02);
+    color: #6A6352;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 20px;
+    gap: 40px;
+}
+
+#filter-info p{
+  width: 10%;
+}
+
+#filters-container{
+  flex-grow: 1;
+}
+
 
 #data-container {
     display: flex;
@@ -161,6 +215,7 @@ img{
   width: 18.5%;
   object-fit: cover;
 }
+
 
 .idea-info:hover {
   box-shadow: 0px 10px 10px #FFF4CD;

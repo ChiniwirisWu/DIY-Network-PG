@@ -9,7 +9,7 @@
       <a class="lcontent forum" href="forum.php">
           <span class="icon"></span> Foro
       </a>
-      <a class="lcontent saved">
+      <a class="lcontent saved" href="save.php">
           <span class="icon"></span> Guardados
       </a>
       <a class="lcontent likes">

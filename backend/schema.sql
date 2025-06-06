@@ -94,12 +94,13 @@ INSERT INTO favorito (fk_publicacion, fk_usuario) VALUES
 CREATE TABLE guardado(
   fk_publicacion INT(20) NOT NULL,
   fk_usuario INT(20) NOT NULL,
+  fecha_agregacion DATE NOT NULL,
   FOREIGN KEY (fk_publicacion) REFERENCES publicacion (codigo) ON DELETE CASCADE,
   FOREIGN KEY (fk_usuario) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
-INSERT INTO guardado (fk_publicacion, fk_usuario) VALUES
-  (1,2),
-  (1,1),
-  (3,1);
+INSERT INTO guardado (fk_publicacion, fk_usuario, fecha_agregacion) VALUES
+  (1,2, NOW()),
+  (1,1, NOW()),
+  (3,1, NOW());
 
