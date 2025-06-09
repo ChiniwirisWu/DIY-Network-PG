@@ -12,9 +12,6 @@
       <a class="lcontent saved" href="save.php">
           <span class="icon"></span> Guardados
       </a>
-      <a class="lcontent likes">
-          <span class="icon"></span> Likes
-      </a>
         <a class="lcontent profile" href="profile.php">
           <span class="icon"></span> Perfil
       </a>

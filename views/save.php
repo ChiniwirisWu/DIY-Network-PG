@@ -27,7 +27,7 @@ try {
       $posts_sql = "SELECT 
                       p.codigo, 
                       p.titulo, 
-                      g.fecha_agregacion, 
+                      DATE_FORMAT(DATE(g.fecha_agregacion), '%d de %M de %Y') as fecha_agregacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
                     FROM 
@@ -47,7 +47,7 @@ try {
       $posts_sql = "SELECT 
                       p.codigo, 
                       p.titulo, 
-                      g.fecha_agregacion, 
+                      DATE_FORMAT(DATE(g.fecha_agregacion), '%d de %M de %Y') as fecha_agregacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
                     FROM 
@@ -67,7 +67,7 @@ try {
       $posts_sql = "SELECT 
                       p.codigo, 
                       p.titulo, 
-                      g.fecha_agregacion, 
+                      DATE_FORMAT(DATE(g.fecha_agregacion), '%d de %M de %Y') as fecha_agregacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
                     FROM 
@@ -88,6 +88,9 @@ try {
   
   // posts query
   $connection = conexion();
+
+  $query = mysqli_query($connection, "SET lc_time_names = 'es_ES'");
+
   $posts_query = mysqli_query($connection, $posts_sql);
   $posts_rows = mysqli_fetch_all($posts_query, MYSQLI_ASSOC);
 
@@ -128,17 +131,17 @@ try {
               <form action="save.php" method="post" id="filters-container">
               <select name="filter-parameter">
                 <option name="filter-parameter" value="date" <?php if($_SESSION["filter-parameter"] == "date") echo "selected" ?>>Fecha de añadido</option>
-                  <option name="filter-parameter" value="vote" <?php if($_SESSION["filter-parameter"] == "vote") echo "selected" ?>>Votos</option>
+                  <option name="filter-parameter" value="vote" <?php if($_SESSION["filter-parameter"] == "vote") echo "selected" ?>>Puntuacion</option>
                 </select>
                 <select name="filter-orientation">
-                  <option name="filter-orientation" value="asc"  <?php if($_SESSION["filter-orientation"] == "asc") echo "selected" ?> >Ascendente</option>
-                  <option name="filter-orientation" value="desc" <?php if($_SESSION["filter-orientation"] == "desc") echo "selected" ?> >Descendente</option>
+                  <option name="filter-orientation" value="asc"  <?php if($_SESSION["filter-orientation"] == "asc") echo "selected" ?> >Menor - Mayor</option>
+                  <option name="filter-orientation" value="desc" <?php if($_SESSION["filter-orientation"] == "desc") echo "selected" ?> >Mayor - Menor</option>
                 </select>
                 <button class="bttn-modificar">Filtrar</button>
               </form>
               </div>
 
-              <div id="data-container">
+            <div id="data-container">
 
             <?php foreach($posts_rows as $post){ ?>
                 <a class="idea-container">
