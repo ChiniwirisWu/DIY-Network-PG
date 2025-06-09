@@ -30,8 +30,62 @@ include "../include/session.php";
                     <button type="submit" class="bttn-agregar">Agregar</button>
             </div>
             <div id="center-content">
-                <div id="data-container"></div>
-                <div id="materials-container"></div>
+                <div id="data-container">
+
+                  <!-- parte izquierda del center -->
+                  <div id="data-top">
+                    <div id="tabs-container">
+                      <button class="tab">Tab 1</button>
+                    </div>
+                  <div style="display: flex; gap: 5px;">
+                      <button id="remove-tab" class="tab-bttn"><span id="remove-icon"></span></button>
+                      <button id="add-tab" class="tab-bttn"><span id="add-icon"></span></button>
+                  </div>
+                  </div>
+                  <div id="data-content">
+                    <textarea required></textarea>
+                  </div>
+                </div>
+
+
+                <!-- parte derecha del center -->
+                <div id="materials-container">
+                  <!-- parte superior de la pesta;a de materiales -->
+                  <div id="materials-form">
+
+                    <div>
+                      <select>
+                        <option>Elija material</option>
+                        <option>Tierra</option>
+                        <option>Palitos de madera</option>
+                        <option>Pega blanca</option>
+                      <select>
+                      <button class="material-bttn">Agregar</button>
+                    </div>
+
+                    <div>
+                      <input type="text" placeholder="Material nuevo" />
+                      <button class="material-bttn">Agregar</button>
+                    </div>
+                  </div>
+
+                  <!-- parte inferior de la pesta;a de materiales -->
+                  <div id="materials-list">
+                    <div class="material-item">
+                      <p class="material-title">Tierra</p>
+                      <button class="delete-bttn"><span class="basura-icon"></span></button>
+                    </div>
+                    <div class="material-item">
+                      <p class="material-title">Tierra</p>
+                      <button class="delete-bttn"><span class="basura-icon"></span></button>
+                    </div>
+                    <div class="material-item">
+                      <p class="material-title">Tierra</p>
+                      <button class="delete-bttn"><span class="basura-icon"></span></button>
+                    </div>
+
+                  </div>
+                </div>
             </div>
             <div id="low-content">
                 <div id="url-container">
@@ -43,5 +97,6 @@ include "../include/session.php";
             </div>
         </div>
     </div>
+    <script src="../scripts/idea.js"></script>
 </body>
 </html>

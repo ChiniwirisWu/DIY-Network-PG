@@ -6,6 +6,7 @@ html, body {
     font-family: 'Zain', sans-serif;
 }
 
+
 button{
     font-family: 'Zain', sans-serif;
 }
@@ -87,6 +88,66 @@ button{
     background-color: #414033;
 }
 
+#data-top{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-bttn{
+  background-color: #414033;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#add-icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("../images/mas-w.png");
+}
+
+#remove-icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("../images/minus-w.png");
+}
+
+
+.tab-bttn:hover{
+    background-color: #F0E7C2;
+}
+
+.tab-bttn:hover > #add-icon{
+  background-image: url("../images/mas-g.png");
+}
+
+.tab-bttn:hover > #remove-icon{
+  background-image: url("../images/minus-g.png");
+}
+
+#data-content{
+  flex-grow: 1;
+}
+
+#data-content textarea{
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #eee;
+}
+
+
+/* parte de los materiales */
 #materials-container {
     display: flex;
     flex-direction: column;
@@ -98,6 +159,121 @@ button{
     border-top-right-radius: 15px; 
     background-color: #661C1F;
 }
+
+#materials-form{
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+#materials-form div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+#materials-form div input, select{
+}
+#materials-form div input{
+  background-color: #661C1F;
+  color: #d5ccab;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+#materials-form div input::placeholder{
+  color: #F0E7C2;
+}
+
+
+select{
+  background-color: #661C1F;
+  color: #d5ccab;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.material-bttn{
+    background-color: #B69C85;
+    color: #392118;
+    border: transparent;
+    font-size: 20px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px 0px 8px 0px;
+    height: 30px;
+    pading: 5px 0px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+.material-bttn:hover{
+    background-color: #947A63;
+    color: #EFDFBB;
+}
+
+#materials-list{
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
+
+.material-item{
+    display: flex; 
+    width: 100%;
+    padding: 5px 5px;
+    background-color: #B69C85;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    color: #392118;
+    margin-bottom: 5px;
+}
+
+.material-item p {
+  margin: 0px;
+}
+
+.tab{
+  background-color: #414033;
+  color: #F0E7C2;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab:hover{
+  background-color: #F0E7C2;
+  color: #414033;
+}
+
+.delete-bttn{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: rgba(255,255,255, 0.1);
+  transition: 0.3.s;
+}
+
+.delete-bttn:hover{
+  background-color: rgba(0,0,0, 0.1);
+}
+
+.basura-icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("../images/basura.png");
+}
+
+
 
 #low-content{
     display: flex;
