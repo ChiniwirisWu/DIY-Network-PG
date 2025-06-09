@@ -17,9 +17,9 @@ CREATE TABLE usuario(
 );
 
 INSERT INTO usuario (codigo, alias, clave) VALUES 
-  (1,"Robert Downey Jr","12345"),
-  (2,"Robert De niro","robert123"),
-  (3,"Victoria Secret","bagsandshi");
+  (1,"admin","$2y$10$EXBOpfSoMyQZBdr50FyGGOCPXWSjGdpWCrOU71lTVXOQ3E30x076q"),
+  (2,"user","$2y$10$EXBOpfSoMyQZBdr50FyGGOCPXWSjGdpWCrOU71lTVXOQ3E30x076q"),
+  (3,"worker","$2y$10$EXBOpfSoMyQZBdr50FyGGOCPXWSjGdpWCrOU71lTVXOQ3E30x076q");
 
 
 
@@ -76,19 +76,20 @@ INSERT INTO publicacion (codigo, fk_autor, titulo, introduccion, instrucciones, 
 
 
 /*la tabla favorito es para las publicaciones que le gustan al usuario*/
-CREATE TABLE favorito(
+CREATE TABLE voto(
   fk_publicacion INT(20) NOT NULL,
   fk_usuario INT(20) NOT NULL,
+  puntuacion FLOAT(20) NOT NULL,
   FOREIGN KEY (fk_publicacion) REFERENCES publicacion (codigo) ON DELETE CASCADE,
   FOREIGN KEY (fk_usuario) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
-INSERT INTO favorito (fk_publicacion, fk_usuario) VALUES 
-  (1,2),
-  (1,3),
-  (2,3),
-  (3,1),
-  (3,2);
+INSERT INTO voto (fk_publicacion, fk_usuario, puntuacion) VALUES 
+  (1,2,3),
+  (1,3,3.7),
+  (2,3,4.8),
+  (3,1,5),
+  (3,2,2);
 
 /*la tabla guardado es para las publicaciones que guarda el usuario*/
 CREATE TABLE guardado(
