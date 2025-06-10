@@ -105,6 +105,7 @@ button{
   cursor: pointer;
 }
 
+
 #add-icon{
   display: inline-block;
   width: 24px;
@@ -132,6 +133,14 @@ button{
 
 .tab-bttn:hover > #remove-icon{
   background-image: url("../images/minus-g.png");
+}
+
+
+.tab-selected{
+  background-color: #9C9E80 !important; 
+  color: #F0E7C2;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #data-content{

@@ -35,7 +35,7 @@ include "../include/session.php";
                   <!-- parte izquierda del center -->
                   <div id="data-top">
                     <div id="tabs-container">
-                      <button class="tab">Tab 1</button>
+                      <button class="tab tab-selected" id="1">Tab 1</button>
                     </div>
                   <div style="display: flex; gap: 5px;">
                       <button id="remove-tab" class="tab-bttn"><span id="remove-icon"></span></button>
