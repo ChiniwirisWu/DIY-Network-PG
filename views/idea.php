@@ -43,7 +43,7 @@ include "../include/session.php";
                   </div>
                   </div>
                   <div id="data-content">
-                    <textarea required></textarea>
+                    <textarea id="content-textarea" required></textarea>
                   </div>
                 </div>
 
