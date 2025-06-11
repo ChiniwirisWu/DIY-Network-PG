@@ -54,18 +54,18 @@ include "../include/session.php";
                   <div id="materials-form">
 
                     <div>
-                      <select>
+                      <select id="material-select">
                         <option>Elija material</option>
-                        <option>Tierra</option>
-                        <option>Palitos de madera</option>
-                        <option>Pega blanca</option>
+                        <option name="material" value="Tierra">Tierra</option>
+                        <option name="material" value="Palitos de madera">Palitos de madera</option>
+                        <option name="material" value="Pega blanca">Pega blanca</option>
                       <select>
-                      <button class="material-bttn">Agregar</button>
+                      <button class="material-bttn" id="add-material-1">Agregar</button>
                     </div>
 
                     <div>
-                      <input type="text" placeholder="Material nuevo" />
-                      <button class="material-bttn">Agregar</button>
+                      <input type="text" id="material-input"  placeholder="Material nuevo" />
+                      <button class="material-bttn" id="add-material-2">Agregar</button>
                     </div>
                   </div>
 
@@ -90,8 +90,7 @@ include "../include/session.php";
             <div id="low-content">
                 <div id="url-container">
                 <label id="url">Ingrese el URL de su imagen: </label>
-                <input type="text" class="txt-input">
-                <button type="submit"class="bttn-agregar">Agregar</button>
+                <input id="url-inp" type="text" class="txt-input">
                 </div>
                 <button type="submit" id="post">Publicar</button>
             </div>
