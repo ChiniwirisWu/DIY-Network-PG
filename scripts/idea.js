@@ -10,13 +10,15 @@ const materialInpBttn = document.getElementById("add-material-2");
 const materialSelect = document.getElementById("material-select");
 const materialInp = document.getElementById("material-input");
 
+const materialList = document.getElementById("materials-list");
+
 // class declaration: the idea is to keep all the info inside a class instance.
 class Idea{
   constructor(){
     this.maxTabs = 8;
     this.nTabs = 1; // counter of the current amount of tabs.
     this.page = 1; // current page.
-    this.materials = [] // {1: [], 2: [], ... n: []}
+    this.materials = [[]] // {1: [], 2: [], ... n: []}
     this.instructions = [] // {1: "", 2: "", ... n: ""}  
     this.images = []
     this.tabs = []; // {html1, thtml2} list of the html objects so I can destroy them.
@@ -26,11 +28,48 @@ class Idea{
   }
   // PAGE MANAGEMENT
   fillContentPerPage(){
-    this.fillElementContent(textarea, this.instructions);
-    this.fillElementContent(urlInp, this.images);
+    this.fillElementContentSimple(textarea, this.instructions);
+    this.fillElementContentSimple(urlInp, this.images);
+    this.fillElementContentList(materialList, this.materials);
   }
 
-  fillElementContent(htmlElement, field){
+  fillElementContentList(htmlElement, field){
+
+    htmlElement.innerHTML = "";
+    const df = document.createDocumentFragment();
+
+    if(field[this.page - 1] == undefined) return;
+
+    field[this.page - 1].forEach((el, index)=>{
+     
+      const div = document.createElement("div");
+      const p = document.createElement("p");
+      const button = document.createElement("button");
+      const span = document.createElement("basura-icon");
+
+      div.classList.add("material-item");
+      p.classList.add("material-title");
+      button.classList.add("delete-bttn");
+      span.classList.add("basura-icon");
+
+      p.textContent = el;
+
+      div.appendChild(p);
+      button.appendChild(span);
+      div.appendChild(button);
+
+      button.addEventListener("click", ()=>{
+        htmlElement.removeChild(div); 
+        field[this.page - 1].splice(index, 1);
+        alert(`Material ${el} eliminado.`);
+      })
+
+      df.appendChild(div);
+    })
+    htmlElement.appendChild(df);
+  }
+
+  fillElementContentSimple(htmlElement, field){
     htmlElement.textContent = field[this.page - 1] || "";
     htmlElement.value = field[this.page - 1] || "";
   }
@@ -123,6 +162,11 @@ class Idea{
 
   //MATERIALS MANAGEMENT
   addMaterial(title){
+    if(title == "" || title == "Elija material"){
+      alert("El nombre del material no puede estar vacío.");
+      return;
+    }
+
     if(this.materials[this.page - 1] == undefined){
       this.materials[this.page - 1] = []; 
     }
@@ -134,6 +178,9 @@ class Idea{
 
     this.materials[this.page - 1].push(title);
     console.log(this.materials);
+    this.fillContentPerPage();
+    materialInp.value = "";
+    materialSelect.value = "Elija material";
   }
 
  // STATES MANAGEMENTS 

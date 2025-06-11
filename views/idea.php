@@ -70,21 +70,7 @@ include "../include/session.php";
                   </div>
 
                   <!-- parte inferior de la pesta;a de materiales -->
-                  <div id="materials-list">
-                    <div class="material-item">
-                      <p class="material-title">Tierra</p>
-                      <button class="delete-bttn"><span class="basura-icon"></span></button>
-                    </div>
-                    <div class="material-item">
-                      <p class="material-title">Tierra</p>
-                      <button class="delete-bttn"><span class="basura-icon"></span></button>
-                    </div>
-                    <div class="material-item">
-                      <p class="material-title">Tierra</p>
-                      <button class="delete-bttn"><span class="basura-icon"></span></button>
-                    </div>
-
-                  </div>
+                  <div id="materials-list"></div>
                 </div>
             </div>
             <div id="low-content">
