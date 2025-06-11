@@ -1,4 +1,7 @@
 <?php
+if(!empty($_POST)){
+  var_dump($_POST);
+}
 // buscar los datos del perfil de la session por el id
 // mostrar todos los datos del perfil que estan guardados en $_SESSION
 include "../include/session.php";
@@ -26,7 +29,7 @@ include "../include/session.php";
            <div id="info-container">
                     <div id="title">
                     <label for="diy-name" id="diy-title">Título para su creación: </label>
-                    <input type="text" name="diy-name" class="txt-input" pattern="[a-zA-Z0-9]" required>
+                    <input id="title-inp" type="text" name="diy-name" class="txt-input" pattern="[a-zA-Z0-9]" required>
                     <button type="submit" class="bttn-agregar">Agregar</button>
             </div>
             <div id="center-content">
@@ -78,7 +81,13 @@ include "../include/session.php";
                 <label id="url">Ingrese el URL de su imagen: </label>
                 <input id="url-inp" type="text" class="txt-input">
                 </div>
-                <button type="submit" id="post">Publicar</button>
+                <form method="post" id="form" action="idea.php">
+                    <input id="post-materiales" type="hidden" name="materiales" pattern="[a-zA-Z0-9]" required />
+                    <input id="post-instrucciones" type="hidden" name="instrucciones" pattern="[a-zA-Z0-9]" required />
+                    <input id="post-imagenes" type="hidden" name="imagenes" pattern="[a-zA-Z0-9]" required />
+                    <input id="post-titulo" type="hidden" name="titulo" pattern="[a-zA-Z0-9]" required />
+                    <button type="submit" id="post">Publicar</button>
+                </form>
             </div>
         </div>
     </div>

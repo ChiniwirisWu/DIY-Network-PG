@@ -6,11 +6,14 @@ const textarea = document.getElementById("content-textarea");
 const urlInp = document.getElementById("url-inp");
 const materialSelectBttn = document.getElementById("add-material-1");
 const materialInpBttn = document.getElementById("add-material-2");
+const titleInp = document.getElementById("title-inp");
 
 const materialSelect = document.getElementById("material-select");
 const materialInp = document.getElementById("material-input");
 
 const materialList = document.getElementById("materials-list");
+
+const form = document.getElementById("form");
 
 // class declaration: the idea is to keep all the info inside a class instance.
 class Idea{
@@ -18,19 +21,74 @@ class Idea{
     this.maxTabs = 8;
     this.nTabs = 1; // counter of the current amount of tabs.
     this.page = 1; // current page.
-    this.materials = [[]] // {1: [], 2: [], ... n: []}
+    this.materials = [] // {1: [], 2: [], ... n: []}
     this.instructions = [] // {1: "", 2: "", ... n: ""}  
     this.images = []
     this.tabs = []; // {html1, thtml2} list of the html objects so I can destroy them.
+    this.title = "";
 
     this.tabs[0] = document.querySelectorAll(".tab")[0]; // initialization of the first tab.
     this.tabs[0].addEventListener("click", ()=> this.setCurrentPage());
+    this.createPageDataTemplate();
   }
+  // POST MANAGEMENT
+  fillFormInputs(){
+    const titleInp = document.getElementById("post-titulo");
+    const instructionsInp = document.getElementById("post-instrucciones");
+    const materialsInp = document.getElementById("post-materiales");
+    const imagesInp = document.getElementById("post-imagenes");
+
+    titleInp.value = this.title;
+    instructionsInp.value = this.createPostStringSimple(this.instructions);
+    materialsInp.value = this.createPostStringSimpleList(this.materials);
+    imagesInp.value = this.createPostStringSimple(this.images);
+  }
+
+  createPostStringSimple(field){
+    let postString = "";
+
+    field.forEach((el, index)=>{
+      if(index == field.length - 1){
+        postString += (el == "")? "vacío" : el;
+      } else {
+        postString += ((el == "")? "vacío" : el) + "&";
+      }
+    })
+
+    return postString;
+  }
+
+  createPostStringSimpleList(field){
+    let postString = "";
+
+    field.forEach((page, index)=>{
+
+      page.forEach((material, index2)=>{
+
+        if(index2 != field[index].length - 1){
+          postString += ((material == "") ? "vacío" : material) + ",";
+        } else {
+          postString += ((material == "") ? "vacío" : material);
+        }
+
+      }) 
+
+      if(index != field.length - 1){
+        postString += "&";
+      }
+
+    })
+
+    return postString;
+  }
+
+
   // PAGE MANAGEMENT
   fillContentPerPage(){
     this.fillElementContentSimple(textarea, this.instructions);
     this.fillElementContentSimple(urlInp, this.images);
     this.fillElementContentList(materialList, this.materials);
+
   }
 
   fillElementContentList(htmlElement, field){
@@ -125,10 +183,18 @@ class Idea{
     this.tabs.push(button);
     this.nTabs++;
     this.page = this.tabs.length;
+
+    this.createPageDataTemplate();
+
     this.setSelectedVisual();
     this.setCurrentPage(pageIndex);
   }
 
+  createPageDataTemplate(){
+    this.images[this.page - 1] = [];
+    this.materials[this.page - 1] = [];
+    this.instructions[this.page - 1] = "";
+  }
 
   removeTab(){
     if(this.nTabs > 1){
@@ -192,6 +258,10 @@ class Idea{
     this.images[this.page - 1] = url;
   }
 
+  addTitle(title){
+    this.title = title;
+  }
+
   //GETTERS AND SETTERS
   getNTabs(){
     return this.nTabs;
@@ -212,6 +282,14 @@ window.onload = ()=> {
   urlInp.addEventListener("input", (e)=> idea.addImage(e.target.value));
   materialInpBttn.addEventListener("click", ()=> idea.addMaterial(materialInp.value));
   materialSelectBttn.addEventListener("click", ()=> idea.addMaterial(materialSelect.value));
+  titleInp.addEventListener("input", (e)=> idea.addTitle(e.target.value));
+  form.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    if(confirm("¿Está seguro de publicar? se borrarán los datos al publicar.")){
+      idea.fillFormInputs();
+      form.submit();
+    } 
+  })
 }
 
 
