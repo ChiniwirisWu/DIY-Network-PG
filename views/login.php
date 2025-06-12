@@ -18,7 +18,7 @@ if(isset($_POST) && !empty($_POST)){
     if(password_verify($clave, $row["clave"])){
       session_start();
       $_SESSION = $row;
-      header("Location: profile.php");
+      header("Location: forum.php");
 
     } else {
       $mensaje = "Usuario y/o clave invalida";
