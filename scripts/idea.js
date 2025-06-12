@@ -7,13 +7,18 @@ const urlInp = document.getElementById("url-inp");
 const materialSelectBttn = document.getElementById("add-material-1");
 const materialInpBttn = document.getElementById("add-material-2");
 const titleInp = document.getElementById("title-inp");
-
 const materialSelect = document.getElementById("material-select");
 const materialInp = document.getElementById("material-input");
+const coverInp = document.getElementById("cover-inp");
 
 const materialList = document.getElementById("materials-list");
 
 const form = document.getElementById("form");
+const postTitle = document.getElementById("post-titulo");
+const postInstructions = document.getElementById("post-instrucciones");
+const postMaterials = document.getElementById("post-materiales");
+const postImages = document.getElementById("post-imagenes");
+const postCover = document.getElementById("post-portada");
 
 // class declaration: the idea is to keep all the info inside a class instance.
 class Idea{
@@ -26,6 +31,7 @@ class Idea{
     this.images = []
     this.tabs = []; // {html1, thtml2} list of the html objects so I can destroy them.
     this.title = "";
+    this.cover = "";
 
     this.tabs[0] = document.querySelectorAll(".tab")[0]; // initialization of the first tab.
     this.tabs[0].addEventListener("click", ()=> this.setCurrentPage());
@@ -33,15 +39,12 @@ class Idea{
   }
   // POST MANAGEMENT
   fillFormInputs(){
-    const titleInp = document.getElementById("post-titulo");
-    const instructionsInp = document.getElementById("post-instrucciones");
-    const materialsInp = document.getElementById("post-materiales");
-    const imagesInp = document.getElementById("post-imagenes");
 
-    titleInp.value = this.title;
-    instructionsInp.value = this.createPostStringSimple(this.instructions);
-    materialsInp.value = this.createPostStringSimpleList(this.materials);
-    imagesInp.value = this.createPostStringSimple(this.images);
+    postTitle.value = this.title;
+    postCover.value = this.cover;
+    postInstructions.value = this.createPostStringSimple(this.instructions);
+    postMaterials.value = this.createPostStringSimpleList(this.materials);
+    postImages.value = this.createPostStringSimple(this.images);
   }
 
   createPostStringSimple(field){
@@ -262,6 +265,10 @@ class Idea{
     this.title = title;
   }
 
+  addCover(title){
+    this.cover = title;
+  }
+
   //GETTERS AND SETTERS
   getNTabs(){
     return this.nTabs;
@@ -273,6 +280,19 @@ class Idea{
 
 // event listeners
 
+function validateFields(){
+  const fields = [postTitle, postInstructions, postMaterials, postImages, postCover];
+  let isValid = true;
+  fields.forEach((el, ind)=>{
+    console.log(el.value == "")
+    if(el.value == "") {
+      isValid = false;
+    }
+  })
+
+  return isValid;
+}
+
 window.onload = ()=> {
   const idea = new Idea();
 
@@ -283,10 +303,18 @@ window.onload = ()=> {
   materialInpBttn.addEventListener("click", ()=> idea.addMaterial(materialInp.value));
   materialSelectBttn.addEventListener("click", ()=> idea.addMaterial(materialSelect.value));
   titleInp.addEventListener("input", (e)=> idea.addTitle(e.target.value));
+  coverInp.addEventListener("input", (e)=> idea.addCover(e.target.value));
+
   form.addEventListener("submit", (e)=>{
     e.preventDefault();
+    idea.fillFormInputs();
+
+    if(!validateFields()){
+      alert("Debe de rellenar todos los campos requeridos.");
+      return;
+    }
+
     if(confirm("¿Está seguro de publicar? se borrarán los datos al publicar.")){
-      idea.fillFormInputs();
       form.submit();
     } 
   })

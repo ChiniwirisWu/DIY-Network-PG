@@ -40,18 +40,17 @@ INSERT INTO seguidor(fk_seguidor, fk_usuario) VALUES
 
 
 CREATE TABLE material(
-  codigo INT(20) PRIMARY KEY AUTO_INCREMENT,
-  alias VARCHAR(30) NOT NULL UNIQUE
+  alias VARCHAR(30) PRIMARY KEY NOT NULL UNIQUE
 );
 
-INSERT INTO material (codigo, alias) VALUES
-  (1,"Pegamento blanco"),
-  (2,"Pintura al frio"),
-  (3,"Papel de cocina"),
-  (4,"Bombillos led"),
-  (5,"Tierra"),
-  (6,"Planta"),
-  (7,"Pinceles");
+INSERT INTO material (alias) VALUES
+  ("Pegamento blanco"),
+  ("Pintura al frio"),
+  ("Papel de cocina"),
+  ("Bombillos led"),
+  ("Tierra"),
+  ("Planta"),
+  ("Pinceles");
 
 /*
 materiales = "239013, 283941, 390424" (lista de codigo de materiales separada por el delimitador ",")
@@ -62,16 +61,17 @@ CREATE TABLE publicacion(
   fk_autor INT(20) NOT NULL,
   materiales VARCHAR(500) NOT NULL,
   titulo VARCHAR(30) NOT NULL,
-  introduccion VARCHAR(2000) NOT NULL,
+  imagenes VARCHAR(500) NOT NULL,
+  portada VARCHAR(500) NOT NULL,
   instrucciones VARCHAR(2000) NOT NULL,
   fecha_publicacion TIMESTAMP NOT NULL,
   FOREIGN KEY (fk_autor) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
-INSERT INTO publicacion (codigo, fk_autor, titulo, introduccion, instrucciones, materiales, fecha_publicacion) VALUES
-  (1, 1, "Jardín Vertical", "Construye un jardín vertical usando paletas de madera recicladas. Ideal para espacios pequeños, este proyecto permite cultivar plantas y hierbas aromáticas en la pared, mejorando el ambiente y aportando un toque natural a tu hogar.", "Consigue una paleta de madera & Lija la superficie para evitar astillas & Pinta o barniza la paleta si lo deseas & Coloca macetas pequeñas en los espacios de la paleta & Rellena las macetas con tierra y plantas & Fija la paleta a la pared con tornillos.", "3949204854&3948493845&9485746251", CURRENT_TIMESTAMP),
-  (2, 2, "Lámpara LED DIY", "Crea una lámpara moderna utilizando luces LED, tubos de cobre y una base de madera. Este proyecto es fácil de personalizar y proporciona una iluminación cálida y acogedora, ideal para cualquier habitación de tu hogar. Además, es una excelente manera de reciclar materiales.", "Reúne tubos de cobre y una base de madera & Corta los tubos a la longitud deseada & Conecta los tubos para formar la estructura de la lámpara & Instala las luces LED en el interior & Conecta el cableado a un interruptor & Asegura todo en la base y enciende.", "9485746251&4853204854&3948392945", CURRENT_TIMESTAMP),
-  (3,3,"Estante Flotante","Diseña un estante flotante minimalista que no solo es funcional, sino que también añade un toque decorativo a cualquier habitación. Este proyecto es ideal para organizar libros, plantas o decoraciones sin ocupar espacio en el suelo, manteniendo un ambiente ordenado y moderno.","Consigue una tabla de madera y soportes ocultos & Mide y corta la tabla a la longitud deseada & Lija los bordes para un acabado suave & Marca los puntos de fijación en la pared & Fija los soportes a la pared & Coloca la tabla sobre los soportes y asegúrate de que esté nivelada.", "9485930402&4853204854&9498587575", CURRENT_TIMESTAMP);
+INSERT INTO publicacion (codigo, fk_autor, titulo, instrucciones, materiales, fecha_publicacion, imagenes, portada) VALUES
+  (1, 1, "Jardín Vertical", "Consigue una paleta de madera & Lija la superficie para evitar astillas & Pinta o barniza la paleta si lo deseas & Coloca macetas pequeñas en los espacios de la paleta & Rellena las macetas con tierra y plantas & Fija la paleta a la pared con tornillos.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg"),
+  (2, 2, "Lámpara LED DIY", "Reúne tubos de cobre y una base de madera & Corta los tubos a la longitud deseada & Conecta los tubos para formar la estructura de la lámpara & Instala las luces LED en el interior & Conecta el cableado a un interruptor & Asegura todo en la base y enciende.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg"),
+  (3,3,"Estante Flotante","Consigue una tabla de madera y soportes ocultos & Mide y corta la tabla a la longitud deseada & Lija los bordes para un acabado suave & Marca los puntos de fijación en la pared & Fija los soportes a la pared & Coloca la tabla sobre los soportes y asegúrate de que esté nivelada.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg");
 
 
 

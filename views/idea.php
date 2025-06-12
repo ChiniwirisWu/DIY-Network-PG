@@ -1,6 +1,56 @@
 <?php
+include "../include/session.php";
+include "../include/connection.php";
+
+$materialesPrevios = [];
+try{
+  $sql = "SELECT * FROM material";
+  $connection = conexion();
+  $query = mysqli_query($connection, $sql);
+  $materialesPrevios = mysqli_fetch_all($query);
+} catch(Exception $e){
+  //
+}
+
 if(!empty($_POST)){
-  var_dump($_POST);
+  $title = $_POST["titulo"];
+  $materials = $_POST["materiales"];
+  $portada = $_POST["portada"];
+  $instructions = $_POST["instrucciones"];
+  $images = $_POST["imagenes"];
+  $user_id = $_SESSION["codigo"];
+  $message = "";
+
+  $connection = conexion();
+  try{
+    $sql = "INSERT INTO publicacion 
+    (titulo, materiales, instrucciones, imagenes, fk_autor, fecha_publicacion, portada) 
+    VALUES ('$title', '$materials', '$instructions', '$images', $user_id, CURRENT_TIMESTAMP, '$portada')";
+    $query = mysqli_query($connection, $sql);
+    $message = "Se creo la publicacion exitosamente"; 
+
+    $output = preg_split("/[&,]/", $materials);
+    $newMaterialSql = "INSERT INTO material (alias) VALUES ";
+
+    for($i = 0; $i < count($output); $i++){
+      if(!in_array($output[$i], $materialesPrevios)){
+
+        $newMaterialSql = $newMaterialSql . "('$output[$i]')";
+
+        if($i < count($output) - 1){
+          $newMaterialSql = $newMaterialSql . ",";
+        }
+
+      }
+    }
+
+    echo $newMaterialSql;
+    $query = mysqli_query($connection, $newMaterialSql);
+
+  } catch (Exception $e){
+    //echo $e;
+    $message = "Hubo un error creando la publicacion";
+  }
 }
 // buscar los datos del perfil de la session por el id
 // mostrar todos los datos del perfil que estan guardados en $_SESSION
@@ -27,11 +77,18 @@ include "../include/session.php";
 
         <div id="center">
            <div id="info-container">
-                    <div id="title">
-                    <label for="diy-name" id="diy-title">Título para su creación: </label>
-                    <input id="title-inp" type="text" name="diy-name" class="txt-input" pattern="[a-zA-Z0-9]" required>
-                    <button type="submit" class="bttn-agregar">Agregar</button>
-            </div>
+              <p id="message"><?php echo $message ?></p> 
+              <div id="title">
+              <div>
+                <label for="diy-name" id="diy-title">Título para su creación: </label>
+                <input id="title-inp" type="text" name="diy-name" class="txt-input" pattern="[a-zA-Z0-9]" required>
+              </div>
+
+              <div>
+                <label for="diy-cover" id="diy-title">Imagen para la portada: </label>
+                <input id="cover-inp" type="text" name="diy-cover" class="txt-input" pattern="[a-zA-Z0-9]" required>
+              </div>
+              </div>
             <div id="center-content">
                 <div id="data-container">
 
@@ -59,9 +116,9 @@ include "../include/session.php";
                     <div>
                       <select id="material-select">
                         <option>Elija material</option>
-                        <option name="material" value="Tierra">Tierra</option>
-                        <option name="material" value="Palitos de madera">Palitos de madera</option>
-                        <option name="material" value="Pega blanca">Pega blanca</option>
+                        <?php foreach($materialesPrevios as $materialPrevio){ ?>
+                        <option name="material" value="<?php echo $materialPrevio[0] ?>"><?php echo $materialPrevio[0] ?></option>
+                        <?php } ?>
                       <select>
                       <button class="material-bttn" id="add-material-1">Agregar</button>
                     </div>
@@ -86,6 +143,7 @@ include "../include/session.php";
                     <input id="post-instrucciones" type="hidden" name="instrucciones" pattern="[a-zA-Z0-9]" required />
                     <input id="post-imagenes" type="hidden" name="imagenes" pattern="[a-zA-Z0-9]" required />
                     <input id="post-titulo" type="hidden" name="titulo" pattern="[a-zA-Z0-9]" required />
+                    <input id="post-portada" type="hidden" name="portada" pattern="[a-zA-Z0-9]" required />
                     <button type="submit" id="post">Publicar</button>
                 </form>
             </div>

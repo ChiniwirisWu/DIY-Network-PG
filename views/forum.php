@@ -27,6 +27,7 @@ try {
                       SELECT 
                       p.codigo, 
                       p.titulo, 
+                      p.portada,
                       DATE_FORMAT(DATE(p.fecha_publicacion), '%d de %M de %Y') as fecha_publicacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
@@ -44,6 +45,7 @@ try {
                       SELECT 
                       p.codigo, 
                       p.titulo, 
+                      p.portada,
                       DATE_FORMAT(DATE(p.fecha_publicacion), '%d de %M de %Y') as fecha_publicacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
@@ -61,6 +63,7 @@ try {
                       SELECT 
                       p.codigo, 
                       p.titulo, 
+                      p.portada,
                       DATE_FORMAT(DATE(p.fecha_publicacion), '%d de %M de %Y') as fecha_publicacion,
                       COUNT(v.fk_publicacion) AS votos, 
                       ROUND(AVG(v.puntuacion), 1) AS puntuacion
@@ -136,7 +139,7 @@ try {
                 <a class="idea-container">
                   <div class="idea-info">
                       <div class="idea-image">
-                        <image src="https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg" alt="idea image" />
+                      <image src="<?php echo $post["portada"] ?>" alt="idea image" />
                       </div>
                       <h3 class="idea-title"><?php echo $post["titulo"] ?></h3>
                       <p><b>Votos: </b> <?php echo $post["votos"] ?></p>
