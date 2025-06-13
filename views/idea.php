@@ -4,10 +4,13 @@ include "../include/connection.php";
 
 $materialesPrevios = [];
 try{
-  $sql = "SELECT * FROM material";
+  $sql = "SELECT alias FROM material";
   $connection = conexion();
   $query = mysqli_query($connection, $sql);
-  $materialesPrevios = mysqli_fetch_all($query);
+  $rows = mysqli_fetch_all($query);
+  foreach($rows as $row){
+    array_push($materialesPrevios, $row[0]);
+  }
 } catch(Exception $e){
   //
 }
@@ -31,21 +34,25 @@ if(!empty($_POST)){
 
     $output = preg_split("/[&,]/", $materials);
     $newMaterialSql = "INSERT INTO material (alias) VALUES ";
+    $counter = 0;
 
     for($i = 0; $i < count($output); $i++){
       if(!in_array($output[$i], $materialesPrevios)){
 
         $newMaterialSql = $newMaterialSql . "('$output[$i]')";
+        $counter++;
 
         if($i < count($output) - 1){
           $newMaterialSql = $newMaterialSql . ",";
+          $counter++;
         }
 
       }
     }
 
-    echo $newMaterialSql;
-    $query = mysqli_query($connection, $newMaterialSql);
+    if($counter > 0){
+      $query = mysqli_query($connection, $newMaterialSql);
+    }
 
   } catch (Exception $e){
     //echo $e;
@@ -117,7 +124,7 @@ include "../include/session.php";
                       <select id="material-select">
                         <option>Elija material</option>
                         <?php foreach($materialesPrevios as $materialPrevio){ ?>
-                        <option name="material" value="<?php echo $materialPrevio[0] ?>"><?php echo $materialPrevio[0] ?></option>
+                        <option name="material" value="<?php echo $materialPrevio ?>"><?php echo $materialPrevio ?></option>
                         <?php } ?>
                       <select>
                       <button class="material-bttn" id="add-material-1">Agregar</button>

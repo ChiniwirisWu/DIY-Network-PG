@@ -117,7 +117,6 @@ try {
           <div id="info-container">
            
             <div id="up-title">Foro</div> 
-
             <div id="filter-info">
               <p>Filtrar por</p>
               <!-- Filtros --> 
@@ -136,7 +135,7 @@ try {
 
               <div id="data-container">
             <?php foreach($posts_rows as $post){ ?>
-                <a class="idea-container">
+                <a class="idea-container" href="post.php?codigo=<?php echo $post["codigo"] ?>">
                   <div class="idea-info">
                       <div class="idea-image">
                       <image src="<?php echo $post["portada"] ?>" alt="idea image" />

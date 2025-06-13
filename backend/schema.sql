@@ -1,4 +1,4 @@
-DROP DATABASE diynetwork;
+-- DROP DATABASE diynetwork;
 
 CREATE DATABASE diynetwork;
 
