@@ -11,12 +11,12 @@ try{
   $sql = "SELECT * FROM publicacion WHERE codigo = $post_id";
   $query = mysqli_query($connection, $sql);
   $post_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+  $post_data = $post_data[0];
   if(!is_null($row)){
     if($post_data["fk_autor"] == $_SESSION["codigo"]){
       header("Location: forum.php");
     }
   } 
-  var_dump($post_data);
 } catch (Exception $e){
   //
 }

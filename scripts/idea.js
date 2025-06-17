@@ -20,7 +20,6 @@ const postMaterials = document.getElementById("post-materiales");
 const postImages = document.getElementById("post-imagenes");
 const postCover = document.getElementById("post-portada");
 
-console.log(postTitle.value);
 
 // class declaration: the idea is to keep all the info inside a class instance.
 class Idea{
@@ -41,12 +40,24 @@ class Idea{
   }
   // POST MANAGEMENT
   fillFormInputs(){
-
     postTitle.value = this.title;
     postCover.value = this.cover;
     postInstructions.value = this.createPostStringSimple(this.instructions);
     postMaterials.value = this.createPostStringSimpleList(this.materials);
     postImages.value = this.createPostStringSimple(this.images);
+  }
+
+  fillListMemberFromString(field, text){
+    if(text.length < 1) return;    
+
+    m_content = [];
+    // first: divide by pages. &
+    pages = text.split("&");
+    // second: divide by list element. ,
+    pages.forEach((el, index)=>{
+      elements = el.split(","); 
+      m_content.push(elements);
+    })
   }
 
   createPostStringSimple(field){
