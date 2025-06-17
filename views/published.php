@@ -8,6 +8,7 @@ $row = [];
 $posts_sql = "";
 $parameter = "";
 $orientation = "";
+$user_id = $_SESSION["codigo"];
 // filter the response.
 
 try {
@@ -35,6 +36,7 @@ try {
                         publicacion p 
                     LEFT JOIN 
                         voto v ON p.codigo = v.fk_publicacion 
+                    WHERE p.fk_autor = $user_id
                     GROUP BY 
                         p.codigo, p.fecha_publicacion
                     ORDER BY 
@@ -53,6 +55,7 @@ try {
                         publicacion p 
                     LEFT JOIN 
                         voto v ON p.codigo = v.fk_publicacion 
+                    WHERE p.fk_autor = $user_id
                     GROUP BY 
                         p.codigo, p.fecha_publicacion
                     ORDER BY 
@@ -71,6 +74,7 @@ try {
                         publicacion p 
                     LEFT JOIN 
                         voto v ON p.codigo = v.fk_publicacion 
+                    WHERE p.fk_autor = $user_id
                     GROUP BY 
                         p.codigo, p.fecha_publicacion
                     ORDER BY 
@@ -120,7 +124,7 @@ try {
             <div id="filter-info">
               <p>Filtrar por</p>
               <!-- Filtros --> 
-              <form action="forum.php" method="post" id="filters-container">
+              <form action="published.php" method="post" id="filters-container">
               <select name="filter-parameter">
                 <option name="filter-parameter" value="date" <?php if($_SESSION["filter-parameter"] == "date") echo "selected" ?>>Fecha de añadido</option>
                   <option name="filter-parameter" value="vote" <?php if($_SESSION["filter-parameter"] == "vote") echo "selected" ?>>Puntuacion</option>

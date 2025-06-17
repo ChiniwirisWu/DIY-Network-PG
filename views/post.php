@@ -36,7 +36,11 @@ try{
   $query = mysqli_query($connection, $sql);
   $saved = mysqli_fetch_array($query);
 
-  
+  // query para ver si el usuario ya ha votado en esta publicacion
+  $sql = "SELECT * FROM voto WHERE fk_publicacion=$codigo AND fk_usuario=$user_id"; 
+  $query = mysqli_query($connection, $sql);
+  $voted = mysqli_fetch_array($query);
+
 } catch(Exception $e){
   echo $e; 
 }
@@ -127,7 +131,9 @@ try{
                       }
                       ?>
                       <div id="details-b">
-                        <input type="range" min=0 max=5 list="markers" />
+                      <form method="post" action="../controllers/post/vote.php">
+                        <input value="<?php echo (is_null($voted))? "0" : $voted['puntuacion'] ?>" name="vote" type="range" min=0 max=5 list="markers" />
+                        <input type='hidden' name='page' value="<?php echo $codigo ?>" />
                         <datalist id="markers">
                           <option value="0"></option>
                           <option value="1"></option>
@@ -137,6 +143,7 @@ try{
                           <option value="5"></option>
                         </datalist>
                         <button class="bttn-modificar">Votar</button>
+                      </form>
                       </div>
                     </div>
                   </div>

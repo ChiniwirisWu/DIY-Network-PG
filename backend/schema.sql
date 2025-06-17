@@ -40,7 +40,7 @@ INSERT INTO seguidor(fk_seguidor, fk_usuario) VALUES
 
 
 CREATE TABLE material(
-  alias VARCHAR(30) PRIMARY KEY NOT NULL UNIQUE
+  alias VARCHAR(30) PRIMARY KEY
 );
 
 INSERT INTO material (alias) VALUES
@@ -59,11 +59,11 @@ instrucciones " lorem ipsumlorem ipsumlorem ipsumlorem ipsum&ipsumlorem ipsum" (
 CREATE TABLE publicacion(
   codigo INT(20) PRIMARY KEY AUTO_INCREMENT,
   fk_autor INT(20) NOT NULL,
-  materiales VARCHAR(500) NOT NULL,
-  titulo VARCHAR(30) NOT NULL,
-  imagenes VARCHAR(500) NOT NULL,
-  portada VARCHAR(500) NOT NULL,
-  instrucciones VARCHAR(2000) NOT NULL,
+  materiales VARCHAR(1000) NOT NULL,
+  titulo VARCHAR(200) NOT NULL,
+  imagenes VARCHAR(1000) NOT NULL,
+  portada VARCHAR(1000) NOT NULL,
+  instrucciones VARCHAR(3000) NOT NULL,
   fecha_publicacion TIMESTAMP NOT NULL,
   FOREIGN KEY (fk_autor) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
