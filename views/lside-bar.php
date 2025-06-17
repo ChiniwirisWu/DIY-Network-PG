@@ -15,4 +15,7 @@
         <a class="lcontent profile" href="profile.php">
           <span class="icon"></span> Perfil
       </a>
+        <a class="lcontent posts" href="posts.php">
+          <span class="icon"></span> Publicaciones
+      </a>
   </div>
