@@ -20,6 +20,8 @@ const postMaterials = document.getElementById("post-materiales");
 const postImages = document.getElementById("post-imagenes");
 const postCover = document.getElementById("post-portada");
 
+console.log(postTitle.value);
+
 // class declaration: the idea is to keep all the info inside a class instance.
 class Idea{
   constructor(){

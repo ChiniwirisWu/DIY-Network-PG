@@ -3,6 +3,25 @@ include "../include/session.php";
 include "../include/connection.php";
 
 $materialesPrevios = [];
+$post_id = $_GET["codigo"];
+
+// obtener toda la informacion acerca de la publicacion para llenar los campos y expulsar intrusos.
+try{
+  $connection = conexion();
+  $sql = "SELECT * FROM publicacion WHERE codigo = $post_id";
+  $query = mysqli_query($connection, $sql);
+  $post_data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+  if(!is_null($row)){
+    if($post_data["fk_autor"] == $_SESSION["codigo"]){
+      header("Location: forum.php");
+    }
+  } 
+  var_dump($post_data);
+} catch (Exception $e){
+  //
+}
+
+// obtener los materiales para el dropdown de materiales.
 try{
   $sql = "SELECT alias FROM material";
   $connection = conexion();
@@ -26,9 +45,8 @@ if(!empty($_POST)){
 
   $connection = conexion();
   try{
-    $sql = "INSERT INTO publicacion 
-    (titulo, materiales, instrucciones, imagenes, fk_autor, fecha_publicacion, portada) 
-    VALUES ('$title', '$materials', '$instructions', '$images', $user_id, CURRENT_TIMESTAMP, '$portada')";
+    $sql = "UPDATE publicacion 
+    SET titulo='$titulo', materiales='$materials', instrucciones='$instructions', imagenes='$images', fecha_publicacion=CURRENT_TIMESTAMP, portada='$portada' WHERE codigo=$post_id";
 
     $query = mysqli_query($connection, $sql);
     $message = "Se creo la publicacion exitosamente"; 
@@ -147,11 +165,11 @@ include "../include/session.php";
                 <input id="url-inp" type="text" class="txt-input">
                 </div>
                 <form method="post" id="form" action="idea.php">
-                    <input id="post-materiales" type="hidden" name="materiales" pattern="[a-zA-Z0-9]" required />
-                    <input id="post-instrucciones" type="hidden" name="instrucciones" pattern="[a-zA-Z0-9]" required />
-                    <input id="post-imagenes" type="hidden" name="imagenes" pattern="[a-zA-Z0-9]" required />
-                    <input id="post-titulo" type="hidden" name="titulo" pattern="[a-zA-Z0-9]" required />
-                    <input id="post-portada" type="hidden" name="portada" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_data["materiales"] ?>" id="post-materiales" type="hidden" name="materiales" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_data["instrucciones"] ?>" id="post-instrucciones" type="hidden" name="instrucciones" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_data["imagenes"] ?>" id="post-imagenes" type="hidden" name="imagenes" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_data["titulo"] ?>" id="post-titulo" type="hidden" name="titulo" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_data["portada"] ?>" id="post-portada" type="hidden" name="portada" pattern="[a-zA-Z0-9]" required />
                     <button type="submit" id="post">Publicar</button>
                 </form>
             </div>
