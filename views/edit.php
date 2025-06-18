@@ -2,8 +2,11 @@
 include "../include/session.php";
 include "../include/connection.php";
 
+if(!empty($_GET)){
+  $post_id = $_GET["codigo"];
+}
+
 $materialesPrevios = [];
-$post_id = $_GET["codigo"];
 
 // obtener toda la informacion acerca de la publicacion para llenar los campos y expulsar intrusos.
 try{
@@ -41,13 +44,15 @@ if(!empty($_POST)){
   $instructions = $_POST["instrucciones"];
   $images = $_POST["imagenes"];
   $user_id = $_SESSION["codigo"];
+  $post_id = $_POST["codigo"];
   $message = "";
 
   $connection = conexion();
   try{
     $sql = "UPDATE publicacion 
-    SET titulo='$titulo', materiales='$materials', instrucciones='$instructions', imagenes='$images', fecha_publicacion=CURRENT_TIMESTAMP, portada='$portada' WHERE codigo=$post_id";
+    SET titulo='$title', materiales='$materials', instrucciones='$instructions', imagenes='$images', fecha_publicacion=CURRENT_TIMESTAMP, portada='$portada' WHERE codigo=$post_id";
 
+    echo $sql;
     $query = mysqli_query($connection, $sql);
     $message = "Se creo la publicacion exitosamente"; 
 
@@ -72,6 +77,7 @@ if(!empty($_POST)){
     if($counter > 0){
       $query = mysqli_query($connection, $newMaterialSql);
     }
+    header("Location: edit.php?codigo=$post_id");
 
   } catch (Exception $e){
     //echo $e;
@@ -80,7 +86,6 @@ if(!empty($_POST)){
 }
 // buscar los datos del perfil de la session por el id
 // mostrar todos los datos del perfil que estan guardados en $_SESSION
-include "../include/session.php";
 
 ?>
 <!DOCTYPE html>
@@ -164,13 +169,18 @@ include "../include/session.php";
                 <label id="url">Ingrese el URL de su imagen: </label>
                 <input id="url-inp" type="text" class="txt-input">
                 </div>
-                <form method="post" id="form" action="idea.php">
+                <form method="post" id="form" action="edit.php">
                     <input value="<?php echo $post_data["materiales"] ?>" id="post-materiales" type="hidden" name="materiales" pattern="[a-zA-Z0-9]" required />
                     <input value="<?php echo $post_data["instrucciones"] ?>" id="post-instrucciones" type="hidden" name="instrucciones" pattern="[a-zA-Z0-9]" required />
                     <input value="<?php echo $post_data["imagenes"] ?>" id="post-imagenes" type="hidden" name="imagenes" pattern="[a-zA-Z0-9]" required />
                     <input value="<?php echo $post_data["titulo"] ?>" id="post-titulo" type="hidden" name="titulo" pattern="[a-zA-Z0-9]" required />
                     <input value="<?php echo $post_data["portada"] ?>" id="post-portada" type="hidden" name="portada" pattern="[a-zA-Z0-9]" required />
+                    <input value="<?php echo $post_id ?>" id="post-portada" type="hidden" name="codigo" pattern="[a-zA-Z0-9]" required />
                     <button type="submit" id="post">Publicar</button>
+                </form>
+                <form style="margin-top: 5px" action="../controllers/post/delete.php" method="post">
+                  <input type="hidden" value="<?php echo $post_id ?>" name="codigo" />
+                  <button type="submit" id="post">Eliminar</button>
                 </form>
             </div>
         </div>

@@ -47,17 +47,19 @@ class Idea{
     postImages.value = this.createPostStringSimple(this.images);
   }
 
-  fillListMemberFromString(field, text){
+  static unpackStringList(text){
     if(text.length < 1) return;    
 
-    m_content = [];
+    let m_content = [];
     // first: divide by pages. &
-    pages = text.split("&");
+    let pages = text.split("&");
     // second: divide by list element. ,
     pages.forEach((el, index)=>{
-      elements = el.split(","); 
+      let elements = el.split(","); 
       m_content.push(elements);
     })
+
+    return m_content;
   }
 
   createPostStringSimple(field){
@@ -101,18 +103,32 @@ class Idea{
 
   // PAGE MANAGEMENT
   fillContentPerPage(){
+    // this method is in charged of show all the visuals.
+    this.fillElementContentSingle(titleInp, this.title);
+    this.fillElementContentSingle(coverInp, this.cover);
+
     this.fillElementContentSimple(textarea, this.instructions);
     this.fillElementContentSimple(urlInp, this.images);
-    this.fillElementContentList(materialList, this.materials);
 
+    this.fillElementContentList(materialList, this.materials);
+  }
+
+  fillAmountOfTabs(nTabsTarget){
+    while(this.nTabs < nTabsTarget){
+      this.page = this.nTabs;
+      this.addTab();
+    }
+  }
+
+  fillElementContentSingle(htmlElement, field){
+    htmlElement.value = field;
+    htmlElement.textContent = field;
   }
 
   fillElementContentList(htmlElement, field){
 
     htmlElement.innerHTML = "";
     const df = document.createDocumentFragment();
-
-    if(field[this.page - 1] == undefined) return;
 
     field[this.page - 1].forEach((el, index)=>{
      
@@ -244,6 +260,7 @@ class Idea{
 
   //MATERIALS MANAGEMENT
   addMaterial(title){
+    console.log(title);
     if(title == "" || title == "Elija material"){
       alert("El nombre del material no puede estar vacío.");
       return;
@@ -287,6 +304,34 @@ class Idea{
     return this.nTabs;
   }
 
+  setTitle(title){
+    this.title = title;
+  }
+
+  setCover(url){
+    this.cover = url;
+  }
+
+  setMaterials(materials){
+    this.materials = materials;
+  }
+
+  setInstructions(instructions){
+    this.instructions = instructions;
+  }
+
+  setImages(images){
+    this.images = images;
+  }
+
+  setTabs(nTabs){
+    this.nTabs = nTabs;
+  }
+
+  getInstructions(){
+    return this.instructions;
+  }
+
 }
 
 
@@ -317,6 +362,16 @@ window.onload = ()=> {
   materialSelectBttn.addEventListener("click", ()=> idea.addMaterial(materialSelect.value));
   titleInp.addEventListener("input", (e)=> idea.addTitle(e.target.value));
   coverInp.addEventListener("input", (e)=> idea.addCover(e.target.value));
+
+  if(postInstructions.value.split("&").length > 0 && postInstructions.value.split("&")[0] != ""){
+    idea.fillAmountOfTabs(postInstructions.value.split("&").length);
+    idea.setTitle(postTitle.value);
+    idea.setCover(postCover.value);
+    idea.setMaterials(Idea.unpackStringList(postMaterials.value));
+    idea.setImages(postImages.value.split('&'));
+    idea.setInstructions(postInstructions.value.split('&'));
+    idea.fillContentPerPage();
+  }
 
   form.addEventListener("submit", (e)=>{
     e.preventDefault();
