@@ -52,7 +52,6 @@ if(!empty($_POST)){
     $sql = "UPDATE publicacion 
     SET titulo='$title', materiales='$materials', instrucciones='$instructions', imagenes='$images', fecha_publicacion=CURRENT_TIMESTAMP, portada='$portada' WHERE codigo=$post_id";
 
-    echo $sql;
     $query = mysqli_query($connection, $sql);
     $message = "Se creo la publicacion exitosamente"; 
 
@@ -65,14 +64,17 @@ if(!empty($_POST)){
 
         $newMaterialSql = $newMaterialSql . "('$output[$i]')";
         $counter++;
+        array_push($materialesPrevios, $output[$i]);
 
-        if($i < count($output) - 1){
+        if($i < count($output) - 2){
           $newMaterialSql = $newMaterialSql . ",";
           $counter++;
         }
 
       }
     }
+
+    echo $newMaterialSql;
 
     if($counter > 0){
       $query = mysqli_query($connection, $newMaterialSql);

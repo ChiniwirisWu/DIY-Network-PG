@@ -1,4 +1,4 @@
--- DROP DATABASE diynetwork;
+DROP DATABASE diynetwork;
 
 CREATE DATABASE diynetwork;
 
@@ -59,18 +59,16 @@ instrucciones " lorem ipsumlorem ipsumlorem ipsumlorem ipsum&ipsumlorem ipsum" (
 CREATE TABLE publicacion(
   codigo INT(20) PRIMARY KEY AUTO_INCREMENT,
   fk_autor INT(20) NOT NULL,
-  materiales VARCHAR(1000) NOT NULL,
-  titulo VARCHAR(200) NOT NULL,
-  imagenes VARCHAR(1000) NOT NULL,
-  portada VARCHAR(1000) NOT NULL,
-  instrucciones VARCHAR(3000) NOT NULL,
+  materiales VARCHAR(5000) NOT NULL,
+  titulo VARCHAR(2000) NOT NULL,
+  imagenes VARCHAR(5000) NOT NULL,
+  portada VARCHAR(2000) NOT NULL,
+  instrucciones VARCHAR(10000) NOT NULL,
   fecha_publicacion TIMESTAMP NOT NULL,
   FOREIGN KEY (fk_autor) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
 INSERT INTO publicacion (codigo, fk_autor, titulo, instrucciones, materiales, fecha_publicacion, imagenes, portada) VALUES
-  (1, 1, "Jardín Vertical", "Consigue una paleta de madera & Lija la superficie para evitar astillas & Pinta o barniza la paleta si lo deseas & Coloca macetas pequeñas en los espacios de la paleta & Rellena las macetas con tierra y plantas & Fija la paleta a la pared con tornillos.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg"),
-  (2, 2, "Lámpara LED DIY", "Reúne tubos de cobre y una base de madera & Corta los tubos a la longitud deseada & Conecta los tubos para formar la estructura de la lámpara & Instala las luces LED en el interior & Conecta el cableado a un interruptor & Asegura todo en la base y enciende.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg"),
   (3,3,"Estante Flotante","Consigue una tabla de madera y soportes ocultos & Mide y corta la tabla a la longitud deseada & Lija los bordes para un acabado suave & Marca los puntos de fijación en la pared & Fija los soportes a la pared & Coloca la tabla sobre los soportes y asegúrate de que esté nivelada.", "Tierra,Planta&Pinceles", CURRENT_TIMESTAMP, "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg", "https://i.etsystatic.com/9018194/r/il/490710/5040623246/il_570xN.5040623246_8wle.jpg");
 
 
@@ -84,12 +82,6 @@ CREATE TABLE voto(
   FOREIGN KEY (fk_usuario) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
-INSERT INTO voto (fk_publicacion, fk_usuario, puntuacion) VALUES 
-  (1,2,3),
-  (1,3,3.7),
-  (2,3,4.8),
-  (3,1,5),
-  (3,2,2);
 
 /*la tabla guardado es para las publicaciones que guarda el usuario*/
 CREATE TABLE guardado(
@@ -100,8 +92,4 @@ CREATE TABLE guardado(
   FOREIGN KEY (fk_usuario) REFERENCES usuario (codigo) ON DELETE CASCADE
 );
 
-INSERT INTO guardado (fk_publicacion, fk_usuario, fecha_agregacion) VALUES
-  (1,2, NOW()),
-  (1,1, NOW()),
-  (3,1, NOW());
 

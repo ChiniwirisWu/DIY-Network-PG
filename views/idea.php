@@ -42,6 +42,7 @@ if(!empty($_POST)){
 
         $newMaterialSql = $newMaterialSql . "('$output[$i]')";
         $counter++;
+        array_push($materialesPrevios, $output[$i]);
 
         if($i < count($output) - 1){
           $newMaterialSql = $newMaterialSql . ",";
